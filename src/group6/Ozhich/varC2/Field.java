@@ -33,7 +33,9 @@ public class Field extends JPanel {
         for (BouncingBall ball : balls) {
             ball.paint(canvas);
         }
-        canvas.drawString(String.valueOf(balls.size()), WIDTH, HEIGHT);
+        canvas.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+        canvas.setColor(Color.BLACK);
+        canvas.drawString(String.valueOf(balls.size()), 20, 20);
     }
 
     public synchronized void pause() {
