@@ -2,7 +2,6 @@ package group6.Ozhich.varC2;
 
 import java.awt.*;
 import java.awt.geom.Ellipse2D;
-import java.util.TreeMap;
 
 public class BouncingBall implements Runnable {
 
@@ -21,6 +20,16 @@ public class BouncingBall implements Runnable {
     private double speedX;
     private double speedY;
 
+    private String hit = "None";
+
+    public String getHit() {
+        return hit;
+    }
+
+    public void NoneHit() {
+        hit = "None";
+    }
+
     public BouncingBall(Field field) {
         this.field = field;
         radius = new Double(Math.random() * (MAX_RADIUS - MIN_RADIUS)).intValue() + MIN_RADIUS;
@@ -32,8 +41,8 @@ public class BouncingBall implements Runnable {
         speedX = 3 * Math.cos(angle);
         speedY = 3 * Math.sin(angle);
         color = new Color((float) Math.random(), (float) Math.random(), (float) Math.random());
-        x = Math.random() * (field.getSize().getWidth() - 2 * radius) + radius;
-        y = Math.random() * (field.getSize().getHeight() - 2 * radius) + radius;
+        x = (field.getSize().getWidth() - radius) / 2;
+        y = (field.getSize().getHeight() - radius) / 2;
         Thread thisTread = new Thread(this);
         thisTread.start();
     }
@@ -59,9 +68,12 @@ public class BouncingBall implements Runnable {
                 } else if (y + speedY <= radius) {
                     speedY = -speedY;
                     y = radius;
+                    hit = "Up";
                 } else if (y + speedY >= field.getHeight() - radius) {
                     speedY = -speedY;
                     y = new Double(field.getHeight() - radius).intValue();
+                    hit = "Down";
+
                 } else {
                     x += speedX;
                     y += speedY;

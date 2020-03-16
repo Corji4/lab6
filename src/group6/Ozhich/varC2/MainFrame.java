@@ -8,6 +8,8 @@ public class MainFrame extends JFrame {
     private static final int WIDTH = 700;
     private static final int HEIGHT = 500;
 
+    private JMenuItem startMenuItem;
+    private JMenuItem resetMenuItem;
     private JMenuItem pauseMenuItem;
     private JMenuItem resumeMenuItem;
 
@@ -21,21 +23,36 @@ public class MainFrame extends JFrame {
         setExtendedState(MAXIMIZED_BOTH);
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
-        JMenu ballMenu = new JMenu("Мячи");
-        Action addBallAction = new AbstractAction("Добавить мячи") {
+        JMenu ballMenu = new JMenu("Игра");
+        Action startAction = new AbstractAction("Старт") {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 field.addBall();
-                if(!pauseMenuItem.isEnabled() && !resumeMenuItem.isEnabled()) {
+                field.resume();
+                if (!pauseMenuItem.isEnabled() && !resumeMenuItem.isEnabled()) {
                     pauseMenuItem.setEnabled(true);
                 }
+                startMenuItem.setEnabled(false);
+                resetMenuItem.setEnabled(true);
+            }
+        };
+        Action resetAction = new AbstractAction("Сброс") {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                pauseMenuItem.setEnabled(false);
+                resumeMenuItem.setEnabled(false);
+                startMenuItem.setEnabled(true);
+                resetMenuItem.setEnabled(false);
+                field.reset();
             }
         };
         menuBar.add(ballMenu);
-        ballMenu.add(addBallAction);
+        startMenuItem = ballMenu.add(startAction);
+        resetMenuItem = ballMenu.add(resetAction);
+        resetMenuItem.setEnabled(false);
         JMenu controlMenu = new JMenu("Управление");
         menuBar.add(controlMenu);
-        Action pauseAction = new AbstractAction("Приостановить движение"){
+        Action pauseAction = new AbstractAction("Приостановить движение") {
             public void actionPerformed(ActionEvent event) {
                 field.pause();
                 pauseMenuItem.setEnabled(false);
