@@ -2,8 +2,7 @@ package group6.Ozhich.varC2;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 import java.util.ArrayList;
 
 public class Field extends JPanel {
@@ -11,8 +10,10 @@ public class Field extends JPanel {
     private ArrayList<BouncingBall> balls = new ArrayList<BouncingBall>(10);
     private boolean paused;
 
-    private int computerScore = 0;
-    private int playerScore = 0;
+    private long startPressedTime;
+
+    private int mouseX;
+    private int mouseY;
 
     private Timer repaintTimer = new Timer(10, new ActionListener() {
         @Override
@@ -24,46 +25,44 @@ public class Field extends JPanel {
     public Field() {
         setBackground(Color.WHITE);
         repaintTimer.start();
+        this.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                startPressedTime = System.nanoTime();
+                mouseX = e.getX();
+                mouseY = e.getY();
+                pause();
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent e) {
+                resume();
+                for (BouncingBall ball : balls) {
+                    int ballX = (int) ball.getX();
+                    int ballY = (int) ball.getY();
+                    double distance = Math.pow(Math.pow((ballX - mouseX), 2) + Math.pow((ballY - mouseY), 2), 0.5);
+                    if (distance <= 1.5 * ball.getRadius()) {
+                        ball.setDirection(e.getX(), e.getY(), (int) ((System.nanoTime() - startPressedTime) / Math.pow(10, 7)));
+                    }
+                }
+            }
+        });
     }
 
     public void addBall() {
-        if (balls.size() == 0) {
-            balls.add(new BouncingBall(this));
-        }
+        balls.add(new BouncingBall(this));
     }
 
     public synchronized void reset() {
         balls.clear();
-        computerScore = 0;
-        playerScore = 0;
     }
 
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
         Graphics2D canvas = (Graphics2D) g;
-        if (computerScore == 10) {
-            paused = true;
-            canvas.setFont(new Font("TimesRoman", Font.PLAIN, 100));
-            canvas.drawString("Победил компьютер!", 300, 400);
-        }
-        if (playerScore == 10) {
-            paused = true;
-            canvas.setFont(new Font("TimesRoman", Font.PLAIN, 100));
-            canvas.drawString("Победил человек!", 350, 400);
-        }
         for (BouncingBall ball : balls) {
             ball.paint(canvas);
-            if ((ball.getHit()).equals("Down")) {
-                computerScore++;
-                ball.NoneHit();
-            } else if ((ball.getHit()).equals("Up")) {
-                playerScore++;
-                ball.NoneHit();
-            }
         }
-        canvas.setFont(new Font("TimesRoman", Font.PLAIN, 50));
-        canvas.setColor(Color.BLACK);
-        canvas.drawString(String.valueOf(playerScore) + " : " + String.valueOf(computerScore), 20, 375);
 
     }
 
@@ -81,4 +80,7 @@ public class Field extends JPanel {
         paused = false;
         notifyAll();
     }
+
+
 }
+

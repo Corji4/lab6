@@ -24,7 +24,7 @@ public class MainFrame extends JFrame {
         JMenuBar menuBar = new JMenuBar();
         setJMenuBar(menuBar);
         JMenu ballMenu = new JMenu("Игра");
-        Action startAction = new AbstractAction("Старт") {
+        Action startAction = new AbstractAction("Старт/Добавить шар") {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 field.addBall();
@@ -32,7 +32,6 @@ public class MainFrame extends JFrame {
                 if (!pauseMenuItem.isEnabled() && !resumeMenuItem.isEnabled()) {
                     pauseMenuItem.setEnabled(true);
                 }
-                startMenuItem.setEnabled(false);
                 resetMenuItem.setEnabled(true);
             }
         };
@@ -41,7 +40,6 @@ public class MainFrame extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 pauseMenuItem.setEnabled(false);
                 resumeMenuItem.setEnabled(false);
-                startMenuItem.setEnabled(true);
                 resetMenuItem.setEnabled(false);
                 field.reset();
             }
