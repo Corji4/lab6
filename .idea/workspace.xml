@@ -43,7 +43,7 @@
   </component>
   <component name="RunManager">
     <configuration name="MainFrame" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="group6.Ozhich.varC2.MainFrame" />
+      <option name="MAIN_CLASS_NAME" value="group6.Ozhich.varC1.MainFrame" />
       <module name="lab6" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -68,6 +68,7 @@
       <updated>1584364906453</updated>
       <workItem from="1584364909268" duration="21498000" />
       <workItem from="1584389439738" duration="14000" />
+      <workItem from="1585220039514" duration="90000" />
     </task>
     <servers />
   </component>

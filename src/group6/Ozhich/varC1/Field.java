@@ -1,4 +1,4 @@
-package group6.Ozhich.varC2;
+package group6.Ozhich.varC1;
 
 import javax.swing.*;
 import java.awt.*;
