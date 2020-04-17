@@ -41,7 +41,7 @@ public class Field extends JPanel {
                     int ballX = (int) ball.getX();
                     int ballY = (int) ball.getY();
                     double distance = Math.pow(Math.pow((ballX - mouseX), 2) + Math.pow((ballY - mouseY), 2), 0.5);
-                    if (distance <= 1.5 * ball.getRadius()) {
+                    if (distance <= 2 * ball.getRadius()) {
                         ball.setDirection(e.getX(), e.getY(), (int) ((System.nanoTime() - startPressedTime) / Math.pow(10, 7)));
                     }
                 }
@@ -50,7 +50,7 @@ public class Field extends JPanel {
     }
 
     public void addBall() {
-        balls.add(new BouncingBall(this));
+            balls.add(new BouncingBall(this));
     }
 
     public synchronized void reset() {
@@ -63,7 +63,6 @@ public class Field extends JPanel {
         for (BouncingBall ball : balls) {
             ball.paint(canvas);
         }
-
     }
 
     public synchronized void pause() {

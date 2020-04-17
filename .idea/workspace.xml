@@ -1,7 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ce4238b-13e6-4749-b703-cab6b42d7257" name="Default Changelist" comment="" />
+    <list default="true" id="9ce4238b-13e6-4749-b703-cab6b42d7257" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/BouncingBall.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/BouncingBall.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/Field$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/Field$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/Field.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/lab6/group6/Ozhich/varC1/Field.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/group6/Ozhich/varC1/BouncingBall.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/group6/Ozhich/varC1/BouncingBall.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/group6/Ozhich/varC1/Field.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/group6/Ozhich/varC1/Field.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -17,17 +24,19 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="ProjectId" id="1ZDDjWN6VWtP6oqL9uXSQsaK097" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="C:/Program Files/Git/bin/git.exe" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -69,6 +78,13 @@
       <workItem from="1584364909268" duration="21498000" />
       <workItem from="1584389439738" duration="14000" />
       <workItem from="1585220039514" duration="90000" />
+      <workItem from="1585395645339" duration="533000" />
+      <workItem from="1586112955190" duration="889000" />
+      <workItem from="1586114063552" duration="703000" />
+      <workItem from="1586115486102" duration="403000" />
+      <workItem from="1586188656324" duration="654000" />
+      <workItem from="1586369620031" duration="723000" />
+      <workItem from="1586448931345" duration="86000" />
     </task>
     <servers />
   </component>

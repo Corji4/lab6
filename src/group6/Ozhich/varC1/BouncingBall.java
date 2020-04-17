@@ -27,8 +27,6 @@ public class BouncingBall implements Runnable {
             speedX = newSpeedX;
             speedY = newSpeedY;
         }
-
-        System.out.println(speed);
     }
 
     public int getRadius() {
